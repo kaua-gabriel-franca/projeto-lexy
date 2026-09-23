@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LEXY - Pesquise, entenda e amplie seu vocabulário</title>
+    <meta name="description" content="LEXY: aplicativo de estudo de palavras da Língua Portuguesa, com significados, polissemia, exemplos e vocabulário pessoal." />
+    <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+    <header class="topo">
+        <div class="marca">
+        <div class="logo">LEXY</div>
+        <div class="slogan">Seu vocabulário, do seu jeito.</div>
+        <nav class="menu" aria-label="Navegação principal">
+            <button data-tela="tela-inicio" class="ativo">INÍCIO</button>
+            <button data-tela="tela-vocabulario">VOCABULÁRIO</button>
+            <button data-tela="tela-revisao">REVISÃO</button>
+            <button data-tela="tela-perfil">PERFIL</button>
+        </nav>
+        </div>
+        <button class="secundario pequeno" id="btn-topo-vocab">Meu vocabulário</button>
+    </header>
+
+    <main>
+        <!-- TELA INICIAL -->
+        <section class="tela ativa" id="tela-inicio">
+        <h2>Pesquisar palavra</h2>
+        <form class="busca" id="form-busca">
+            <input id="campo-busca" type="text" placeholder="PESQUISE UMA PALAVRA..." autocomplete="off" />
+            <button type="submit">Pesquisar</button>
+        </form>
+        <p class="erro" id="mensagem-erro" hidden></p>
+
+        <div class="cartao">
+            <span class="rotulo">Pesquisadas recentemente</span>
+            <div class="recentes" id="lista-recentes"><span class="aviso">Nenhuma pesquisa ainda.</span></div>
+        </div>
+
+        <div class="cartao">
+            <span class="rotulo">Sugestões para começar</span>
+            <div class="recentes" id="lista-sugestoes"></div>
+        </div>
+        </section>
+
+        <!-- TELA DA PALAVRA -->
+        <section class="tela" id="tela-palavra">
+        <button class="secundario pequeno" id="btn-voltar">← Voltar</button>
+        <div id="conteudo-palavra"></div>
+        </section>
+
+        <!-- TELA DO VOCABULÁRIO -->
+        <section class="tela" id="tela-vocabulario">
+        <h2>Meu vocabulário</h2>
+        <div class="busca">
+            <input id="filtro-vocab" type="text" placeholder="Filtrar palavras salvas..." />
+            <button class="secundario" id="btn-so-favoritas">Só favoritas</button>
+        </div>
+        <ul class="lista" id="lista-vocabulario"></ul>
+        <p class="aviso" id="vocab-vazio" hidden>Você ainda não salvou nenhuma palavra.</p>
+        </section>
+
+        <!-- TELA DE REVISÃO -->
+        <section class="tela" id="tela-revisao">
+        <h2>Revisão</h2>
+        <div class="cartao" id="area-revisao"></div>
+        </section>
+
+        <!-- TELA DE PERFIL -->
+        <section class="tela" id="tela-perfil">
+        <h2>Perfil</h2>
+        <div class="cartao conta-google">
+            <span class="rotulo">Minha conta</span>
+            <div id="conta-desconectada">
+            <p class="aviso">Entre com sua conta Google para guardar seu perfil e progresso.</p>
+            <button id="btn-criar-conta" class="botao-google" type="button"><span class="google-g">G</span> Criar conta com Google</button>
+            </div>
+            <div id="conta-conectada" class="usuario-google" hidden>
+            <img id="foto-google" alt="Foto do perfil" hidden />
+            <div><strong id="nome-google"></strong><small id="email-google"></small></div>
+            <button id="btn-sair" class="secundario pequeno" type="button">Sair</button>
+            </div>
+            <p class="erro" id="erro-conta" hidden></p>
+        </div>
+        <div class="cartao">
+            <span class="rotulo">Estudante</span>
+            <input id="campo-nome" type="text" placeholder="Seu nome" />
+            <button class="pequeno" id="btn-salvar-nome" style="margin-top:10px">Salvar nome</button>
+        </div>
+        <div class="cartao estatisticas">
+            <div class="estatistica"><strong id="est-salvas">0</strong>palavras salvas</div>
+            <div class="estatistica"><strong id="est-favoritas">0</strong>favoritas</div>
+            <div class="estatistica"><strong id="est-pesquisas">0</strong>pesquisas</div>
+        </div>
+        <div class="cartao">
+            <span class="rotulo">Histórico de pesquisas</span>
+            <ul class="lista" id="lista-historico"></ul>
+            <button class="perigo pequeno" id="btn-limpar">Limpar todos os dados</button>
+        </div>
+        </section>
+    </main>
+
+    <script src="lexy-app-v3.js"></script>
+</body>
+</html>
